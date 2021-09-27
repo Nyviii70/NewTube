@@ -1,0 +1,7 @@
+{
+  "name": "YouTuyau",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
