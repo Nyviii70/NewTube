@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class IMBdService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+  getMovies(){
+    return this.http.get ('https://imdb-api.com/en/API/SearchMovie/k_du6rlvy1/inception%202010').toPromise()
+  }
 }

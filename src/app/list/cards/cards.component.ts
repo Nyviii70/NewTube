@@ -7,6 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardsComponent implements OnInit {
 
+  // actor: Actor[] = [
+  //   {
+  //     "firstname": "Loïc",
+  //     "lastname": "Derrieux",
+  //     "image": "blabla",
+  //     "movies": [
+  //       {
+  //         "id": 1,
+  //         "title": "Les dents de la mère",
+  //         "description": "blabla",
+  //         "image" : "blabla"
+  //       }
+  //     ]
+  //   }
+  // ]
   constructor() { }
 
   ngOnInit() {}
