@@ -24,6 +24,7 @@ interface Iresult {
 })
 export class ListComponent implements OnInit {
 
+// variable movies
   movies;
 
   constructor(private Service: IMBdService) { }
@@ -31,6 +32,7 @@ export class ListComponent implements OnInit {
 
   ngOnInit() {
     this.Service.getMovies().then((data: Idata) => {
+// variable movies contient data.results
       this.movies = data.results
     })
   }
