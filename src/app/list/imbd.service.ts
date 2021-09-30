@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
+
 export class IMBdService {
 
   private subject$: BehaviorSubject<movie[]>;
@@ -19,6 +20,8 @@ export class IMBdService {
   public getObservable(){
     return this.subject$.asObservable();
   }
+
+  // récupère les film de l'API
   public getPopularMovies(): Subscription {
     return this.http.get<movie[]> (`https://imdb-api.com/en/API/Top250Movies/k_1ms2tae8`)
     .pipe(map((data: any)=> data.items))

@@ -15,6 +15,7 @@ import { ListModule } from '../list/list.module';
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
+// accès au list.component.ts et son service
     ListModule
   ],
   declarations: [HomePage]

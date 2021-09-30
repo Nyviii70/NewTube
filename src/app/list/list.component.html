@@ -1,10 +1,12 @@
 <ul>
+<!-- boucle pour afficher le titre d'un film -->
   <li *ngFor="let movie of movies">
       {{ movie.title }}
       <ion-thumbnail>
+<!-- affichage de l'image de chaque film -->
         <ion-img [src]="movie.image"></ion-img>
       </ion-thumbnail>
-  <!-- au clic, appel de deleteMovie du list.component -->
+<!-- au clic, appel de deleteMovie du list.component.ts -->
       <ion-button color="danger" size="small" (click)="deleteMovie(movie.title)">X</ion-button>
   </li>
 </ul>
