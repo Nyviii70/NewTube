@@ -1,5 +1,10 @@
 <ul>
   <li *ngFor="let movie of movies">
       {{ movie.title }}
+      <ion-thumbnail>
+        <ion-img [src]="movie.image"></ion-img>
+      </ion-thumbnail>
+  <!-- au clic, appel de deleteMovie du list.component -->
+      <ion-button color="danger" size="small" (click)="deleteMovie(movie.title)">X</ion-button>
   </li>
 </ul>

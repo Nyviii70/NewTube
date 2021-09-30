@@ -1,20 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { IMBdService } from './imbd.service';
 import { movie } from './interface/movie';
 
-interface Idata {
-  searchType: string,
-  expression: string,
-  results: Iresult[]
-}
-
-interface Iresult {
-  id: string,
-  resultType: string,
-  image: string,
-  title: string,
-  description: string
-}
 
 @Component({
   selector: 'app-list',
@@ -22,19 +10,26 @@ interface Iresult {
   styleUrls: ['./list.component.scss'],
   providers: [IMBdService]
 })
-export class ListComponent implements OnInit {
+export class ListComponent implements OnInit, OnDestroy {
 
-// variable movies
-  movies;
+  private sub$: Subscription;
 
-  constructor(private Service: IMBdService) { }
+  protected movies: movie[];
+  constructor(private service: IMBdService) { }
 
 
-  ngOnInit() {
-    this.Service.getMovies().then((data: Idata) => {
-// variable movies contient data.results
-      this.movies = data.results
-    })
+  ngOnInit(): void {
+    this.service.getPopularMovies();
+    this.sub$ = this.service.getObservable()
+    .subscribe((data: movie[])=> this.movies = data)
   }
 
+  ngOnDestroy(): void{
+    this.sub$.unsubscribe();
+  }
+
+  // lié au imbd.service
+  deleteMovie(title: string):void{
+    this.service.deleteMovie(title);
+  }
 }

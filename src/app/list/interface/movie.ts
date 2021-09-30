@@ -1,9 +1,7 @@
-import { actor } from "./actor";
-
 export interface movie {
-    id: number,
+    id?: string,
     title: string,
-    description: string,
+    year: string,
     image: string,
-    actors: actor[]
+    crew: string
 }
