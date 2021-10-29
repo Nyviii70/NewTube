@@ -6,7 +6,7 @@ import { AddPage } from './add.page';
 const routes: Routes = [
   {
     path: '/add',
-    component: AddPage
+    component: AddPage,
   }
 ];
 
