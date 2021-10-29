@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { MultiFileUploadComponent } from '../multi-file-upload/multi-file-upload.component';
+import { MultiFileUploadComponent } from './multi-file-upload/multi-file-upload.component';
 
 @Component({
   selector: 'app-add',

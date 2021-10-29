@@ -1,20 +1,23 @@
 import { Component } from '@angular/core';
 import { FileUploader, FileLikeObject } from 'ng2-file-upload';
+
 @Component({
   selector: 'app-multi-file-upload',
   templateUrl: './multi-file-upload.component.html',
   styleUrls: ['./multi-file-upload.component.scss']
 })
+
 export class MultiFileUploadComponent {
-  // génère le suivi de tous les fichiers en cours de téléchargement
+  // objet qui génère le suivi de tous les fichiers en cours de téléchargement
   public uploader: FileUploader = new FileUploader({});
-  // modifie le style lorsque la zone de dépôt est survolée
+  // objet qui modifie le style lorsque la zone de dépôt est survolée
   public hasBaseDropZoneOver: boolean = false;
 
   constructor() {
+    
   }
 
-  // récupérer un tableau de tous les fichiers téléchargés
+  // méthode pour récupérer un tableau de tous les fichiers téléchargés
   getFiles(): FileLikeObject[] {
     return this.uploader.queue.map((fileItem) => {
       return fileItem.file;

@@ -16,8 +16,7 @@ const routes: Routes = [
   {
     // on dit qu'à l'écriture de 'add'
     path: 'add',
-    // on appelle ce component
-   component: AddPage
+    loadChildren: () => import('./add/add.module').then( m => m.AddPageModule)
   },
 ];
 

@@ -6,9 +6,10 @@ import { IonicModule } from '@ionic/angular';
 import { AddPage } from './add.page';
 
 import { AddPageRoutingModule } from './add-routing.module';
-import { MultiFileUploadComponent } from '../multi-file-upload/multi-file-upload.component';
 
 import { FileUploadModule } from 'ng2-file-upload';
+
+import { MultiFileUploadComponent } from './multi-file-upload/multi-file-upload.component';
 
 @NgModule({
   imports: [
@@ -17,8 +18,7 @@ import { FileUploadModule } from 'ng2-file-upload';
     IonicModule,
     AddPageRoutingModule,
     FileUploadModule,
-    MultiFileUploadComponent
   ],
-  declarations: [AddPage]
+  declarations: [AddPage, MultiFileUploadComponent]
 })
 export class AddPageModule {}

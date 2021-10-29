@@ -4,18 +4,20 @@
   [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
   (fileOver)="fileOverBase($event)"
   [uploader]="uploader"
-  class="drop-zone"
->
+  class="drop-zone">
   Ajoutez vos fichiers ici
 </div>
+
 <div class="file-input-container">
   <label>
     <!-- ajout manuel des fichiers -->
-    <input type="file" ng2FileSelect [uploader]="uploader" multiple />
+    <input type="file" ng2FileSelect [uploader]="uploader" multiple/>
     Ajout
   </label>
 </div>
-<h2>Fichier: {{ uploader?.queue?.length }}</h2>
+
+<h2>Fichiers: {{ uploader?.queue?.length }}</h2>
+
 <ion-list>
   <!-- liste des fichiers déjà téléchargés -->
   <ion-reorder-group (ionItemReorder)="reorderFiles($event)" disabled="false">

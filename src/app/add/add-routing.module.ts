@@ -5,7 +5,8 @@ import { AddPage } from './add.page';
 
 const routes: Routes = [
   {
-    path: '/add',
+    // pas de / devant le path
+    path: '',
     component: AddPage,
   }
 ];
