@@ -1,12 +1,13 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Bienvenue, tête de cul !
+      Bienvenue !
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-button [routerLink]="['/add']">Ajouter un film</ion-button>
 <!-- appel du list.component -->
   <app-list></app-list>
 </ion-content>
