@@ -1,12 +1,12 @@
 <!-- zone de dépôt (survole) -->
-<div
+<!-- <div
   ng2FileDrop
   [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
   (fileOver)="fileOverBase($event)"
   [uploader]="uploader"
   class="drop-zone">
   Ajoutez vos fichiers ici
-</div>
+</div> -->
 
 <div class="file-input-container">
   <label>
@@ -27,3 +27,14 @@
     </ion-item>
   </ion-reorder-group>
 </ion-list>
+
+<!-- 
+<div class="file-input-container">
+    <input type="button" ng2FileSelect value="Envoyer" (click)="upload()"/>
+</div> -->
+
+<button type="button" ng2FileSelect 
+  (click)="upload.uploadAll()"
+  [disabled]="!uploader.getNotUploadedItems().length">
+  Envoyer
+  </button>

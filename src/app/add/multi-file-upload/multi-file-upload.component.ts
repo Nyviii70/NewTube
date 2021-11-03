@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FileUploader, FileLikeObject } from 'ng2-file-upload';
 
 @Component({
@@ -9,29 +9,33 @@ import { FileUploader, FileLikeObject } from 'ng2-file-upload';
 
 export class MultiFileUploadComponent {
   // objet qui génère le suivi de tous les fichiers en cours de téléchargement
-  public uploader: FileUploader = new FileUploader({});
+  public uploader: FileUploader = new FileUploader({
+    url: 'http://localhost:5500',
+    method: "POST",
+  itemAlias: "uploadedfile"});
   // objet qui modifie le style lorsque la zone de dépôt est survolée
-  public hasBaseDropZoneOver: boolean = false;
+  // public hasBaseDropZoneOver: boolean = false;
 
   constructor() {
-    
   }
 
-  // méthode pour récupérer un tableau de tous les fichiers téléchargés
-  getFiles(): FileLikeObject[] {
-    return this.uploader.queue.map((fileItem) => {
-      return fileItem.file;
-    });
+  upload(){
+    this.uploader.uploadAll()
   }
+  // méthode pour récupérer un tableau de tous les fichiers uploadés
+//   getFiles(): FileLikeObject[] {
+//     return this.uploader.queue.map((fileItem) => {
+//       return fileItem.file;
+//     });
+//   }
 
-  fileOverBase(ev): void {
-    this.hasBaseDropZoneOver = ev;
-  }
+//   fileOverBase(ev): void {
+//     this.hasBaseDropZoneOver = ev;
+//   }
 
-  // régorganise la liste qui affiche les fichiers téléchargés
-  reorderFiles(reorderEvent: CustomEvent): void {
-    let element = this.uploader.queue.splice(reorderEvent.detail.from, 1)[0];
-    this.uploader.queue.splice(reorderEvent.detail.to, 0, element);
-  }
-  
+//   // régorganise la liste qui affiche les fichiers téléchargés
+//   reorderFiles(reorderEvent: CustomEvent): void {
+//     let element = this.uploader.queue.splice(reorderEvent.detail.from, 1)[0];
+//     this.uploader.queue.splice(reorderEvent.detail.to, 0, element);
+//   }
 }
