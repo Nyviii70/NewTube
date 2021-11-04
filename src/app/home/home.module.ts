@@ -10,6 +10,7 @@ import { ListModule } from '../list/list.module';
 
 
 @NgModule({
+  declarations: [HomePage],
   imports: [
     CommonModule,
     FormsModule,
@@ -18,6 +19,6 @@ import { ListModule } from '../list/list.module';
 // accès au list.component.ts et son service
     ListModule
   ],
-  declarations: [HomePage]
+ 
 })
 export class HomePageModule {}

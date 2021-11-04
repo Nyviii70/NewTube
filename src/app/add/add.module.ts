@@ -1,24 +1,24 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouteReuseStrategy } from '@angular/router';
+
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AddPage } from './add.page';
-
 import { AddPageRoutingModule } from './add-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
-import { FileUploadModule } from 'ng2-file-upload';
-
-import { MultiFileUploadComponent } from './multi-file-upload/multi-file-upload.component';
+import { MultiFileUploadModule } from './multi-file-upload/multi-file-upload.module';
 
 @NgModule({
+  declarations: [AddPage],
   imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
+    BrowserModule,
+    IonicModule.forRoot(),
     AddPageRoutingModule,
-    FileUploadModule,
+    HttpClientModule,
+    MultiFileUploadModule
   ],
-  declarations: [AddPage, MultiFileUploadComponent]
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy}],
 })
 export class AddPageModule {}

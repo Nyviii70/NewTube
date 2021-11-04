@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AddPageModule } from './add/add.module';
 import { AddPage } from './add/add.page';
 
 const routes: Routes = [
@@ -14,8 +15,9 @@ const routes: Routes = [
   },
 
   {
-    // on dit qu'à l'écriture de 'add'
+    // on dit qu'à l'écriture de 'add' on accède à /add
     path: 'add',
+    component: AddPage,
     loadChildren: () => import('./add/add.module').then( m => m.AddPageModule)
   },
 ];
@@ -23,7 +25,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     // méthode statique pour les modules custome : routermodule : approutingmodule
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }) 
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }), AddPageModule 
   ],
   exports: [RouterModule]
 })
