@@ -15,8 +15,8 @@ app.use(
 
 app.use(fileUpload());
 
-app.get("/images", (req, res) => {
-    res.sendFile(__dirname + '/index.html')
+app.get("/", (req, res) => {
+    res.sendFile('/root/Clowz/src/src/app/add/multi-file-upload/multi-file-upload.component.html')
 });
 
 app.post("/", (req, res) => {
@@ -24,13 +24,11 @@ app.post("/", (req, res) => {
         console.log("File received: ")
         console.log(req.files)
         let file = req.files.file
-        let filename = file.name
 
-        file.mv(`./uploadedFiles/${filename}`, function (err) {
+
+        file.mv(`./storage/${filename}`, function (err) {
             if (err) {
                 res.send(err);
-            }else{
-                res.sendFile(__dirname + '/page2.html')
             }
         })
     }

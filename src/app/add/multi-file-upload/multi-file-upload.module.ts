@@ -6,6 +6,8 @@ import { IonicModule } from "@ionic/angular";
 
 import { MultiFileUploadComponent } from "./multi-file-upload.component";
 
+
+
 @NgModule({
     imports: [
         CommonModule,

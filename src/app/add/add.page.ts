@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { MultiFileUploadComponent } from './multi-file-upload/multi-file-upload.component';
 import { OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-add',
   templateUrl: './add.page.html',
