@@ -137,7 +137,7 @@ export class MultiFileUploadComponent implements OnInit {
     const response = await fetch(file.data);
     const blob = await response.blob();
     const formData = new FormData();
-    formData.append('storage', blob, file.name);
+    formData.append('file', blob, file.name);
     this.uploadData(formData);
   }
  

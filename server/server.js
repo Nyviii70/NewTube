@@ -19,16 +19,19 @@ app.get("/", (req, res) => {
     res.sendFile('/root/Clowz/src/src/app/add/multi-file-upload/multi-file-upload.component.html')
 });
 
-app.post("/", (req, res) => {
+app.post("/storage", (req, res) => {
     if (req.files) {
         console.log("File received: ")
         console.log(req.files)
         let file = req.files.file
-
+        console.log("file: ", file);
+        let filename = file.name
 
         file.mv(`./storage/${filename}`, function (err) {
             if (err) {
                 res.send(err);
+            }else{
+                res.send("fichier bien envoyé");
             }
         })
     }
